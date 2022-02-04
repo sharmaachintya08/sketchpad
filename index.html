@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sketchpad.io</title>
+    <!--adding defualt css file-->
+    <link rel="stylesheet" href="default.css">
+</head>
+
+<body>
+    <section>
+        <div class="titlebox">
+            <h1>SKETCHPAD.IO</h1>
+            <div class="titlebox_options">
+                <button id="save">SAVE</button>
+                <button id="clear">CLEAR</button>
+            </div>
+        </div>
+        <div class="tools">
+            <button id="downward_btn"></button>
+            <div class="toolbox">
+                <button id="pencil"><img src="images/pencil (1).png" alt="pencil"></button>
+                <button id="eraser"><img src="images/eraser (1).png" alt="eraser"></button>
+                <button id="rectangle"><img src="images/rounded-rectangle.png" alt="shapes"></button>
+                <button id="circle"><img src="images/circle (1).png" alt="circle"></button>
+                <button id="triangle"><img src="images/triangle.png" alt="triangle"></button>
+                <input id="color_input" type="color">
+                <input id= "size" type="range" min="0" max="100" step="10" value="40">
+            </div>
+        </div>
+    </section>
+    <section class="canvasbox">
+        <canvas id="canvas"></canvas>
+    </section>
+    <script src="default.js"></script>
+</body>
+
+</html>

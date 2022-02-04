@@ -1,0 +1,78 @@
+*{
+    border:1px solid black;
+    margin: 0px;
+    padding: 0px;
+}
+.titlebox{
+    display:flex;
+    align-items: center;
+    background-color: rgba(196, 196, 196, 41%);
+}
+.titlebox h1{
+    text-align:center;
+    width:91%;
+    flex-shrink:2;
+}
+.titlebox .titlebox_options{
+    display:flex;
+    gap:10px;
+    height:15px;
+    width:50px;
+}
+.titlebox .titlebox_options button{
+    font-size:10px;
+    color:white;
+    background-color: black;
+    font-weight: 10px;
+    border:none;
+}
+.titlebox .titlebox_options button:hover{
+    color:green;
+}
+.tools #downward_btn{
+    height: fit-content;
+    width: fit-content;
+    height:15px;
+    width:30px;
+    background-color: #EEA7A7;
+    margin-left:200px;
+    border:1px solid ;
+}
+.tools #downward_btn:hover{
+    background-color: #A7EEA9;
+    box-shadow: 2px 2px 3px #EEEEEE;/*this effect should get better*/
+}
+.tools .toolbox{
+    display:none;
+    gap:7px;
+    align-items: center;
+    margin-left:150px;
+    width:fit-content;
+    margin-top:10px;
+    background-color: rgba(196, 196, 196, 41%);
+}
+.tools .toolbox button img{
+    width:10px;
+    height:10px;
+}
+.tools .toolbox button img:hover{
+    box-shadow: 2px 2px 3px #EEEEEE;
+}
+.tools .toolbox #size{
+    width:50px;
+    height:10px;
+    align-items: center;
+}
+.tools .toolbox #color_input{
+    width: 20px;
+    height: 20px;
+    border-color: black;
+    border: none;
+    cursor: pointer;
+    background:none;
+    border-radius: 50%;
+}
+.canvasbox #canvas{
+    width:100%;/*this can cause problems*/
+    height:500px;
+}
