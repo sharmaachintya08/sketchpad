@@ -73,6 +73,6 @@
     border-radius: 50%;
 }
 .canvasbox #canvas{
-    width:100%;/*this can cause problems*/
+    width:500px;/*this can cause problems*/
     height:500px;
 }
