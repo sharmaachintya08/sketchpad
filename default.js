@@ -11,6 +11,7 @@ const eraser = elementselector('#eraser');
 const canvas = elementselector('#canvas');
 const context = canvas.getContext('2d');
 const canvasStyle = getComputedStyle(canvas);
+const rectangle = elementselector('#rectangle');
 
 downward_btn.onclick = function(){
     if(count%2!=0){
@@ -69,3 +70,26 @@ eraser.onclick = function(){
     var width = parseInt(canvasStyle.width);
     context.clearRect(0,0,height,width);
 }
+rectangle.onclick = function(){//there is some coordinate problem here
+    //take offsetx coordinates
+    var startingX = 0;
+    var startingY = 0;
+    var endingX = 0;
+    var endingY = 0;
+
+    canvas.addEventListener('mousedown',e=>{
+        startingX = e.offsetX;
+        startingY = e.offsetY;
+        console.log(startingX,startingY);
+    });
+    canvas.addEventListener('mouseup',e=>{
+        endingX = e.offsetX;
+        endingY = e.offsetY;
+        contdraw(startingX,startingY,endingX,endingY);
+    });
+    //once i move the mouse the loop doesnt end
+    function contdraw(x,y,x1,y1){
+        context.strokeRect(startingX,startingY,endingX,endingY);
+    }
+}
+//there is no use of such shapes where we cant see where the lines are going so i have deducted 2 shapes from my program
