@@ -7,8 +7,10 @@ const toolbox = elementselector('.toolbox');
 let count = 1;
 const size = elementselector('#size');
 const pencil = elementselector('#pencil');
+const eraser = elementselector('#eraser');
 const canvas = elementselector('#canvas');
 const context = canvas.getContext('2d');
+const canvasStyle = getComputedStyle(canvas);
 
 downward_btn.onclick = function(){
     if(count%2!=0){
@@ -61,4 +63,9 @@ pencil.onclick = function(){
         }
     }
     pencil_draw();
+}
+eraser.onclick = function(){
+    var height = parseInt(canvasStyle.height);
+    var width = parseInt(canvasStyle.width);
+    context.clearRect(0,0,height,width);
 }
