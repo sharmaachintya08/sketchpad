@@ -1,0 +1,38 @@
+@media (max-width:798px){
+    .titlebox .titlebox_options{
+        display:block;
+        position:relative;
+        margin-top:-23px;
+    }
+}
+@media (max-width:430px){
+    .tools{
+        position:relative;
+        left:-15%;
+    }
+}
+@media (max-width:240px){
+    .tools{
+        position:relative;
+        left:-50%;
+    }
+}
+@media (max-width:230px){
+    .titlebox h1{
+        font-size:12px;
+    }
+    .titlebox .titlebox_options{
+        display:block;
+        gap:2px;
+        height:1px;
+        width:50px;
+        background-color: rgba(196, 196, 196, 41%);
+    }
+    .titlebox .titlebox_options button{
+        font-size:10px;
+        color:white;
+        background-color: black;
+        font-weight: 10px;
+        border:none;
+    }
+}
