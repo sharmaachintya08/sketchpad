@@ -30,45 +30,39 @@ elementselector('#size').oninput = function(){
     sizeval = this.value;
 }
 pencil.onclick = function(){
-    function pencil_draw(){
-        console.log('pencil selected');
-        var isDrawing = false;
-        var x = 0;
-        var y = 0;
-        canvas.addEventListener('mousedown',e=>{
-            console.log('mousedown activated');
-            x = e.offsetX;
-            y = e.offsetY;
-            isDrawing = true;
-        });
-        canvas.addEventListener('mousemove',e=>{
-            if(isDrawing == true){
-                console.log('mousemove activated');
-                drawline(context,x,y,e.offsetX,e.offsetY);
-                x = e.offsetX;
-                y = e.offsetY;
-            }
-        });
-        canvas.addEventListener('mouseup',e=>{
-            if(isDrawing == true){
-                console.log('mouseup activated');
-                drawline(context,x,y,e.offsetX,e.offsetY);
-                x=0;
-                y=0;
-                isDrawing = false;
-            }
-        })
-        function drawline(context,x,y,x1,y1){
-            context.beginPath();
-            context.strokeStyle = colorval;
-            context.lineWidth = sizeval/10;
-            context.moveTo(x, y);
-            context.lineTo(x1, y1);
-            context.stroke();
-            context.closePath();
+    isDrawing = false;
+    startingX = 0;
+    startingY = 0;
+    canvas.addEventListener("mousedown",e=>{
+        var bounds = canvas.getBoundingClientRect();
+        startingX = e.pageX - bounds.left - scrollX;
+        startingY = e.pageY - bounds.top - scrollY;
+        isDrawing = true;
+    });
+    canvas.addEventListener("mousemove",e=>{
+        if(isDrawing === true){
+            var bounds = canvas.getBoundingClientRect();
+            draw(e.pageX - bounds.left - scrollX, e.pageY - bounds.top - scrollY);
+            startingX = e.pageX - bounds.left - scrollX;
+            startingY = e.pageY - bounds.top - scrollY;
+            console.log('bounds val : ',bounds.left,bounds.top);
+            console.log('offsetval : ',e.offsetX,e.offsetY);
+            console.log('page val: ',e.pageX,e.pageY);
+            console.log('scroll val: ',scrollX,scrollY);
         }
+    });
+    canvas.addEventListener('mouseup',e=>{
+        isDrawing = false;
+    });
+    function draw(x1,y1){
+        context.beginPath();
+        context.strokeStyle = colorval;
+        context.lineWidth = sizeval/10;
+        context.moveTo(startingX,startingY);//we are giving this starting coordinates
+        context.lineTo(x1,y1);//we are giving this the the coordinate till where the line should go
+        context.stroke();
+        context.closePath();
     }
-    pencil_draw();
 }
 eraser.onclick = function(){
     var height = parseInt(canvasStyle.height);
